@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber-Tech</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="icon" href="../images/Logo Rose.png">
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/bot.css" />
+    <link rel="stylesheet" href="../css/vista.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="color-section section-1">
+            <div class="header-container">
+                <div class="top-header">
+                    <div class="logo-container">
+                        <a href="../index.html" class="logo">
+                            <img src="../images/Logo Rose.png" alt="Logo" />
+                        </a>
+                    </div>
+
+                    <div class="search-bar">
+                        <input type="search" id="search-box" placeholder="Busca tu producto..." />
+                        <button class="search-btn" onclick="redirectToPage()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <p>Atención al cliente</p>
+                                <p>+51 953 505 951</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>Escríbenos</p>
+                                <p>ventas@cybertech.com.pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="color-section section-2">
+            <!-- Segundo bloque: Menú de navegación y iconos -->
+            <div class="header-container">
+                <div class="bottom-header">
+
+                    
+                    <nav class="navbar">
+                        <a href="../index.html">Inicio</a>
+                        <div class="dropdown" id="categorias-dropdown">
+                            <a href="#" class="dropdown-toggle">Productos</a>
+                            <div class="dropdown-menu">
+                                <a href="../Pc-Laptops.html">Laptops y PCs</a>
+                                <a href="../componentes.html">Componentes de PC</a>
+                                <div class="dropdown" id="perifericos-dropdown">
+                                    <a href="#" class="dropdown-toggle">Periféricos</a>
+                                    <div class="sub-dropdown">
+                                        <a href="../Teclados.html">Teclados</a>
+                                        <a href="../Ratones.html">Ratones</a>
+                                        <a href="../Auriculares.html">Auriculares</a>
+                                        <a href="../Impresoras.html">Impresoras</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../servicios.html">Servicios</a>
+                        <a href="../GrupoCiberted.html">Cyber-Tech</a>
+                        <a href="../SobreNosotros.html">Sobre Nosotros</a>
+                        <a href="../contacto.html">Contacto</a>
+                    </nav>
+
+
+                    
+
+                    <div class="icons">
+                        <div class="fas fa-user" id="user-btn"></div>
+                        <div class="fas fa-shopping-cart" id="cart-btn">
+                            <span id="cart-count" class="cart-count">0</span>
+                        </div>
+                    </div>
+
+                    <div id="login-modal" class="login-modal" aria-hidden="true">
+                        <div class="login-content" role="dialog" aria-labelledby="login-title" aria-modal="true">
+                            <button class="close-btn" aria-label="Cerrar">&times;</button>
+                            <h2 id="login-title">Ingresar</h2>
+
+                            <form id="loginForm" action="../login" method="POST">
+                                <label for="username">Correo electrónico <span class="required">*</span></label>
+                                <input type="text" id="username" name="username" required
+                                    placeholder="Ingrese su correo">
+
+                                <label for="password">Password <span class="required">*</span></label>
+                                <div class="password-container">
+                                    <input type="password" id="password" name="password" required
+                                        placeholder="Ingrese su contraseña">
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+
+                                <!-- Mensaje de inicio de sesión -->
+                                <div id="loginMessage" class="login-message" style="display: none; color: green;">
+                                    Inicio de sesión correcto.
+                                </div>
+
+                                <!-- Botón Acceder -->
+                                <button type="submit" class="login-btn">Acceder</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Modal del Carrito -->
+                    <div id="cart-modal" class="cart-modal" aria-hidden="true">
+                        <div class="cart-content" role="dialog" aria-labelledby="cart-title" aria-modal="true">
+                            <button class="close-btn" aria-label="Cerrar">&times;</button>
+                            <h2 id="cart-title">Carrito de Compras</h2>
+
+                            <!-- Cart Items -->
+                            <div class="cart-item">
+                                <div class="item-image">
+                                    <img src="../images/accesorio02.png" alt="Producto 1" />
+                                </div>
+                                <div class="item-details">
+                                    <span>SKU: 1400914-45</span>
+                                    <div class="item-quantity">
+                                        <button class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                        <input type="number" value="1" min="1" aria-label="Cantidad de producto">
+                                        <button class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                                    </div>
+                                    <div class="price-info">
+                                        <span class="old-price">S/ 1,569.00</span>
+                                        <span class="new-price">S/ 704.93</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subtotal -->
+                            <div class="cart-subtotal">
+                                <span>Subtotal:</span>
+                                <span class="subtotal-price">S/ 704.93</span>
+                            </div>
+
+                            <!-- Cart Buttons -->
+                            <div class="cart-actions">
+                                <button class="cart-btn">Finalizar Compra</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="chat-section">
+        <div id="chat-icon" class="chat-icon">
+            <img src="../images/ChatRose.png" alt="Chat Bot" />
+        </div>
+
+        <div id="chatbot" class="chatbot-container">
+            <div class="chat-header">
+                <img src="../images/ChatRose.png" alt="Icono" class="chat-icon-header">
+                <h3 class="Cibertecito">Cibertecito</h3>
+                <button id="close-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="chat-message bot-message">
+                    <p>¡Hola! 💙 Soy el chat Bot 🤖 tu asesor virtual. Bienvenid@.</p>
+                    <span class="timestamp"></span>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input id="chat-input" type="text" placeholder="Escribe un mensaje..." class="chat-input">
+                <button id="send-btn" class="chat-btn">Enviar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="red-section">
+        <div id="red-icon" class="red-icon">
+            <a href="https://web.whatsapp.com/"><img src="../images/whatsapp.png" alt="Chat" /></a>
+        </div>
+    </section>
+
+    <div class="product-container">
+        <h1>Laptop Dell Inspiron</h1>
+        <div class="product-header">
+            <img src="../images/Componentes/DellLaptop.jpg" alt="Imagen de la Laptop ASUS VivoBook 15" class="product-image">
+            <div class="product-info">
+                <ul>
+                    <li>Procesador: Intel Core i5-1035G1</li>
+                    <li>Almacenamiento: 512GB SSD</li>
+                    <li>RAM: 8GB DDR4</li>
+                    <li>Pantalla: 15.6" FHD (1920x1080)</li>
+                    <li>Sistema Operativo: Windows 10 Home</li>
+                    <li>Gráficos: Intel UHD Graphics</li>
+                    <li>Peso: 1.75 kg</li>
+                </ul>
+                <p class="warranty-info">
+                    <span>✔</span> 1 año de garantía limitada con soporte técnico a partir de la fecha de compra.
+                </p>
+                <p class="availability">
+                    <span>✔</span> Producto sujeto a disponibilidad.
+                </p>
+            </div>
+        </div>
+
+        <h2>Especificaciones técnicas</h2>
+        <table class="specs-table">
+            <tr>
+                <th>Procesador</th>
+                <td>Intel Core i5-1035G1 (1.0GHz hasta 3.6GHz, 4 núcleos, 6MB Caché)</td>
+            </tr>
+            <tr>
+                <th>Almacenamiento</th>
+                <td>512GB SSD PCIe</td>
+            </tr>
+            <tr>
+                <th>Memoria RAM</th>
+                <td>8GB DDR4 2400MHz</td>
+            </tr>
+            <tr>
+                <th>Pantalla</th>
+                <td>15.6" FHD (1920x1080), antirreflejos</td>
+            </tr>
+            <tr>
+                <th>Sistema Operativo</th>
+                <td>Windows 10 Home</td>
+            </tr>
+            <tr>
+                <th>Gráficos</th>
+                <td>Intel UHD Graphics</td>
+            </tr>
+            <tr>
+                <th>Puertos</th>
+                <td>1x HDMI, 2x USB 3.2, 1x USB 2.0, 1x USB-C, 1x Jack 3.5mm, lector de tarjetas</td>
+            </tr>
+            <tr>
+                <th>Batería</th>
+                <td>37Wh, 2 celdas de polímero</td>
+            </tr>
+            <tr>
+                <th>Dimensiones</th>
+                <td>35.9 x 23.5 x 2.0 cm</td>
+            </tr>
+            <tr>
+                <th>Peso</th>
+                <td>1.75 kg</td>
+            </tr>
+            <tr>
+                <th>Conectividad</th>
+                <td>Wi-Fi 5, Bluetooth 4.1</td>
+            </tr>
+            <tr>
+                <th>Garantía</th>
+                <td>12 meses</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo y descripción -->
+            <div class="footer-section logo-section">
+                <h1><span>Cyber-Tech</span></h1>
+                <p>Soluciones technologicas <br> a tu servicio </p>
+                <p>Nuestras redes sociales</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/tu-perfil" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/tu-perfil" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/tu-canal" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@tu-perfil" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://plus.google.com/tu-perfil" target="_blank"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="https://twitter.com/tu-perfil" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+
+            </div>
+
+            <!-- Sección sobre nosotros -->
+            <div class="footer-section about-section">
+                <h3><a href="/servicios.html">SERVICIOS</a></h3>
+                <ul>
+                    <li><a href="">Ventas: 922118232 - 905467164 - 946561832 - 981023848 - 981025646 – 959287630 - 959284743</a></li>
+                    <li><a href="#">Email:  ventas@sercoplus.com</a></li>
+                    <li><a href="#">Dirección: Av. Garcilaso de la Vega 1248–1250</a></li>
+                    <li><a href="#">Nuestras Cuentas Bancarias</a></li>
+                    <li><a href="#">Galeria Compuwilson (Tienda 201)</a></li>
+                    <li><a href="#">WhatsApp Garantía: 959283589</a></li>
+                    <li><a href="#">Dirección de Soporte: Av. Garcilaso de la Vega
+                        1248–1250 Galeria Compuwilson (Tienda 107)</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Compra segura -->
+            <div class="footer-section secure-purchase-section">
+                <h3><a href="/SobreNosotros.html">SOBRE NOSOTROS</a></h3>
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Nuestra Empresa</a></li>
+                    <li><a href="#">Medios de Pago</a></li>
+                    <li><a href="#">Política de Cookies</a></li>
+                    <li><a href="#">Política de devoluciones</a></li>
+                    <li><a href="#">Política de Privacidad de Datos Personales</a></li>
+                    <li><a href="#">Política de Envío</a></li>
+                    <li><a href="#">Política de garantías</a></li>
+                </ul>
+            </div>
+
+            <!-- Métodos de pago -->
+            <div class="footer-section payment-methods-section">
+                <h3>MÉTODOS DE PAGO</h3>
+                <div class="payment-icons">
+                    <img src="../images/pagos.png" alt="Pago" /><br><br>
+                    <a href="../reclamo.html"><img src="../images/Reclamo.PNG" alt="Pago" /></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie de página -->
+        <div class="footer-bottom">
+            <p>CYBER-TECH 2024 © Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../js/vistas.js/bot.js"></script>
+    <script src="../js/vistas.js/buscar.js"></script>
+    <script src="../js/vistas.js/scripts.js"></script>
+</body>
+
+</html>
