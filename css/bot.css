@@ -1,0 +1,186 @@
+#chat-section {
+    font-size: 1.6rem;
+}
+
+.chat-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    text-transform: none;
+}
+
+.chat-header {
+    background-color: var(--bg-color2);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-icon-header {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.chat-header .Cibertecito {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+.chat-icon:hover {
+    transform: scale(1.1);
+}
+
+.chat-icon img {
+    width: 80px;
+    height: 80px;
+}
+
+.chatbot-container {
+    width: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+    transform: translateY(20px);
+}
+
+.chatbot-container.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chat-header h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.status {
+    font-size: 0.9em;
+    color: #e0e0e0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ffcccc;
+}
+
+.chat-body {
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bot-message {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: 80%;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #999;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.chat-btn {
+    background-color: var(--bg-color2);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.chat-btn:hover {
+    background-color:var(--bg-color2);
+}
+
+.user-message {
+    background-color: #cce5ff;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #e9ecef;
+    align-self: flex-start;
+}
+
+.red-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 150px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    z-index: 500;
+}
+
+.red-icon img {
+    width: 80px;
+    height: 80px;
+}
+
+.red-icon:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,173 @@
+.products {
+    padding: 20rem 2rem;
+    background-color: #e0e0e0;
+    background-image: url('../images/'); /* Ruta a la imagen */
+}
+
+.products .heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #000000;
+}
+
+.products .heading span {
+    color: var(--main-color);
+}
+
+.products .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sidebar-filters {
+    background-color: rgb(241, 241, 241);
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: sticky;
+    top: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin-right: 20px;
+}
+
+.sidebar-filters h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.accordion {
+    background-color: rgb(241, 241, 241);
+    color: #333;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    transition: 0.4s ease;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.accordion:hover, .accordion.active {
+    background-color: #e0e0e0;
+}
+
+.panel {
+    padding: 0.8rem 1rem;
+    display: none;
+    background-color: rgb(241, 241, 241);
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.panel label {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.panel input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.products .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 2rem;
+}
+
+.products .box-container .box {
+    position: relative;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 10px;
+}
+
+.products .box-container .box:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.products .box-container .box .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.products .box-container .box:hover .icons {
+    opacity: 1;
+}
+
+.products .box-container .box .icons a {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #333;
+    margin: 0 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.products .box-container .box .icons a:hover {
+    background-color: var(--main-color);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.products .box-container .box .image {
+    padding: 2.5rem 0;
+    transition: opacity 0.3s ease;
+}
+
+.products .box-container .box:hover .image {
+    opacity: 0.3;
+}
+
+.products .box-container .box .image img {
+    max-height: 12rem;
+    object-fit: contain;
+}
+
+.products .box-container .box .content h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+.products .box-container .box .content .price {
+    color: #1B9C85;
+    font-size: 2.5rem;
+}
+
+.products .box-container .box .content .price span {
+    text-decoration: line-through;
+    font-weight: lighter;
+    font-size: 1.5rem;
+    color: #FF0060;
+}

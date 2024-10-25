@@ -1,0 +1,209 @@
+
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 180px;
+    text-transform: none;
+}
+
+.cart {
+    width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1rem;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+}
+
+.product-details img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.coupon {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.coupon-input {
+    width: 70%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.apply-coupon-btn {
+    padding: 15px 20px;
+    font-size: 1rem;
+    background-color: var(--bg-color2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.apply-coupon-btn:hover {
+    background-color: var(--bg-color2);
+}
+
+.update-cart-btn {
+    padding: 15px 20px;
+    font-size: 1rem;
+    background-color: #d4edda;
+    color: var(--bg-color2);
+    border: 1px solid var(--bg-color2);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.update-cart-btn:hover {
+    background-color: #c3e6cb;
+}
+
+.cart-summary {
+    width: 35%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.cart-summary h2 {
+    margin-bottom: 20px;
+    font-size: 1.rem;
+    text-transform: none;
+}
+
+.summary-detail, .summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.summary-total {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.checkout-btn {
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    width: 100%;
+    background-color:var(--bg-color2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: rgb(117, 187, 252);
+}
+
+
+/* Estilos para el modal del ticket */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#ticket-number ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#ticket-number li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    list-style-type: none;
+}
+
+#ticket-number p{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#aceptar-btn{
+    margin-top: 15px;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 400px;
+    font-size: 1.2rem;
+}
+
+.modal-content H2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--bg-color2);
+    text-transform: none;
+}
+
+#ticket-details{
+    margin: 15px 0;
+    text-align: center;
+    list-style-type: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.aceptar-btn {
+    margin-top: 20px;
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    background-color: var(--bg-color2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.aceptar-btn:hover {
+    background-color: var(--bg-color2);
+}
+
+

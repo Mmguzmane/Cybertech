@@ -1,0 +1,135 @@
+:root {
+    --primary-color: #6C9BCF;
+    --secondary-color: #363949;
+    --background-color: e0e0e0
+    --text-color: #fff;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Ubuntu', sans-serif;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    background-color: var(--background-color);
+    padding: 180px;
+    font-family: var(--body-font);
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #faf8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.sidebar h2 {
+    color: var(--primary-color);
+    font-family: var(--heading-font);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-transform: none;
+}
+
+#services-list {
+    list-style: none;
+    padding: 0;
+}
+
+#services-list li {
+    color: var(--text-color);
+    font-size: 1.1em;
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    color: #677483;
+    font-size: 1.6em; 
+    margin: 5px 0;
+    padding-left: 20px; 
+    transition: background 0.3s ease, color 0.3s ease; 
+}
+
+#services-list li:hover {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    color: var(--text-color); 
+}
+
+
+.service-details {
+    flex: 3;
+    display: grid;
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #f3f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 100px;
+    text-align: left;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.service-card h2 {
+    font-family: var(--heading-font);
+    font-size: 2em; 
+    color: var(--primary-color);
+    margin: 15px 0;
+    text-transform: none;
+}
+
+.service-card p {
+    font-size: 1.4em;
+    color: #7d8da1;
+    margin: 5px 0;
+    line-height: 1.6em;
+    margin-bottom: 15px;
+    text-transform: none;
+}
+
+.service-card h3 {
+    font-family: var(--heading-font);
+    font-size: 1.8em; 
+    color: var(--primary-color);
+    margin-top: 15px;
+}
+
+.service-card ul { 
+    color: #677483;
+    font-size: 1.4em; 
+    margin: 5px 0;
+    padding-left: 20px; 
+}
+.service-card ul li {
+    color: #677483;
+    font-size: 1.4em; 
+    margin: 5px 0;
+}
+
+.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .service-details {
+        grid-template-columns: 1fr; 
+    }
+}
