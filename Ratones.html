@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber-Tech</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="icon" href="images/Logo Rose.png">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/bot.css" />
+    <link rel="stylesheet" href="css/componenetes.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="color-section section-1">
+            <div class="header-container">
+                <div class="top-header">
+                    <div class="logo-container">
+                        <a href="index.html" class="logo">
+                            <img src="images/Logo Rose.png" alt="Logo" />
+                        </a>
+                    </div>
+
+                    <div class="search-bar">
+                        <input type="search" id="search-box" placeholder="Busca tu producto..." />
+                        <button class="search-btn" onclick="redirectToPage()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <p>Atención al cliente</p>
+                                <p>+51 953 505 951</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>Escríbenos</p>
+                                <p>ventas@cybertech.com.pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="color-section section-2">
+            <!-- Segundo bloque: Menú de navegación y iconos -->
+            <div class="header-container">
+                <div class="bottom-header">
+
+                    
+                    <nav class="navbar">
+                        <a href="index.html">Inicio</a>
+                        <div class="dropdown" id="categorias-dropdown">
+                            <a href="#" class="dropdown-toggle">Productos</a>
+                            <div class="dropdown-menu">
+                                <a href="Pc-Laptops.html">Laptops y PCs</a>
+                                <a href="componentes.html">Componentes de PC</a>
+                                <div class="dropdown" id="perifericos-dropdown">
+                                    <a href="#" class="dropdown-toggle">Periféricos</a>
+                                    <div class="sub-dropdown">
+                                        <a href="Teclados.html">Teclados</a>
+                                        <a href="Ratones.html">Ratones</a>
+                                        <a href="Auriculares.html">Auriculares</a>
+                                        <a href="Impresoras.html">Impresoras</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="servicios.html">Servicios</a>
+                        <a href="GrupoCiberted.html">Cyber-Tech</a>
+                        <a href="SobreNosotros.html">Sobre Nosotros</a>
+                        <a href="contacto.html">Contacto</a>
+                    </nav>
+
+
+                    
+
+                    <div class="icons">
+                        <div class="fas fa-user" id="user-btn"></div>
+                        <div class="fas fa-shopping-cart" id="cart-btn">
+                            <span id="cart-count" class="cart-count">0</span>
+                        </div>
+                    </div>
+
+                    <div id="login-modal" class="login-modal" aria-hidden="true">
+                        <div class="login-content" role="dialog" aria-labelledby="login-title" aria-modal="true">
+                            <button class="close-btn" aria-label="Cerrar">&times;</button>
+                            <h2 id="login-title">Ingresar</h2>
+
+                            <form id="loginForm" action="/login" method="POST">
+                                <label for="username">Correo electrónico <span class="required">*</span></label>
+                                <input type="text" id="username" name="username" required
+                                    placeholder="Ingrese su correo">
+
+                                <label for="password">Password <span class="required">*</span></label>
+                                <div class="password-container">
+                                    <input type="password" id="password" name="password" required
+                                        placeholder="Ingrese su contraseña">
+                                    <i class="fas fa-eye toggle-password"></i>
+                                </div>
+
+                                <!-- Mensaje de inicio de sesión -->
+                                <div id="loginMessage" class="login-message" style="display: none; color: green;">
+                                    Inicio de sesión correcto.
+                                </div>
+
+                                <!-- Botón Acceder -->
+                                <button type="submit" class="login-btn">Acceder</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Modal del Carrito -->
+                    <div id="cart-modal" class="cart-modal" aria-hidden="true">
+                        <div class="cart-content" role="dialog" aria-labelledby="cart-title" aria-modal="true">
+                            <button class="close-btn" aria-label="Cerrar">&times;</button>
+                            <h2 id="cart-title">Carrito de Compras</h2>
+
+                            <!-- Cart Items -->
+                            <div class="cart-item">
+                                <div class="item-image">
+                                    <img src="images/accesorio02.png" alt="Producto 1" />
+                                </div>
+                                <div class="item-details">
+                                    <span>SKU: 1400914-45</span>
+                                    <div class="item-quantity">
+                                        <button class="qty-btn" aria-label="Disminuir cantidad">-</button>
+                                        <input type="number" value="1" min="1" aria-label="Cantidad de producto">
+                                        <button class="qty-btn" aria-label="Aumentar cantidad">+</button>
+                                    </div>
+                                    <div class="price-info">
+                                        <span class="old-price">S/ 1,569.00</span>
+                                        <span class="new-price">S/ 704.93</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Subtotal -->
+                            <div class="cart-subtotal">
+                                <span>Subtotal:</span>
+                                <span class="subtotal-price">S/ 704.93</span>
+                            </div>
+
+                            <!-- Cart Buttons -->
+                            <div class="cart-actions">
+                                <button class="cart-btn">Finalizar Compra</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="chat-section">
+        <div id="chat-icon" class="chat-icon">
+            <img src="images/ChatRose.png" alt="Chat Bot" />
+        </div>
+
+        <div id="chatbot" class="chatbot-container">
+            <div class="chat-header">
+                <img src="images/ChatRose.png" alt="Icono" class="chat-icon-header">
+                <h3 class="Cibertecito">Cibertecito</h3>
+                <button id="close-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="chat-body" id="chat-body">
+                <div class="chat-message bot-message">
+                    <p>¡Hola! 💙 Soy el chat Bot 🤖 tu asesor virtual. Bienvenid@.</p>
+                    <span class="timestamp"></span>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <input id="chat-input" type="text" placeholder="Escribe un mensaje..." class="chat-input">
+                <button id="send-btn" class="chat-btn">Enviar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="red-section">
+        <div id="red-icon" class="red-icon">
+            <a href="https://web.whatsapp.com/"><img src="images/whatsapp.png" alt="Chat" /></a>
+        </div>
+    </section>
+    
+    <section class="products" id="mouses">
+        <h1 class="heading">Mouse & <span>Comodidad</span></h1>
+    
+        <div class="container">
+            <!-- Sidebar de filtros -->
+            <aside class="sidebar-filters">
+                <h2>Filtros</h2>
+    
+                <!-- Filtro por Marca -->
+                <button class="accordion">Marca</button>
+                <div class="panel">
+                    <label><input type="checkbox" class="filter" data-type="marca" value="NVIDIA" /> NVIDIA</label><br />
+                    <label><input type="checkbox" class="filter" data-type="marca" value="Logitech" /> Logitech</label><br />
+                    <label><input type="checkbox" class="filter" data-type="marca" value="Razer" /> Razer</label><br />
+                    <label><input type="checkbox" class="filter" data-type="marca" value="SteelSeries" /> SteelSeries</label><br />
+                    <label><input type="checkbox" class="filter" data-type="marca" value="HyperX" /> HyperX</label>
+                </div>
+    
+                <!-- Filtro por Precio -->
+                <button class="accordion">Precio</button>
+                <div class="panel">
+                    <label><input type="checkbox" class="filter" data-type="precio" value="menos-500" /> Menos de S/500</label><br />
+                    <label><input type="checkbox" class="filter" data-type="precio" value="500-1000" /> S/500 a S/1000</label><br />
+                    <label><input type="checkbox" class="filter" data-type="precio" value="1000-2000" /> S/1000 a S/2000</label><br />
+                    <label><input type="checkbox" class="filter" data-type="precio" value="mas-2000" /> Más de S/2000</label>
+                </div>
+            </aside>
+    
+            <div class="box-container">
+                <!-- Componente 1: Ratón HyperX Pulsefire -->
+                <div class="box" data-marca="HyperX" data-precio="180">
+                    <div class="image">
+                        <img src="images/Componentes/Hypermouse.jpg" alt="Ratón HyperX Pulsefire" />
+                    </div>
+                    <div class="content">
+                        <h3>Ratón HyperX Pulsefire</h3>
+                        <div class="price">S/180.00 <span>S/220.00</span></div>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="/pages/Ratón-HyperX.html" class="fas fa-eye"></a>
+                    </div>
+                </div>
+    
+                <!-- Componente 2: Ratón Logitech G Pro -->
+                <div class="box" data-marca="Logitech" data-precio="220">
+                    <div class="image">
+                        <img src="images/Componentes/Logitechmouse.jpg" alt="Ratón Logitech G Pro" />
+                    </div>
+                    <div class="content">
+                        <h3>Ratón Logitech G Pro</h3>
+                        <div class="price">S/220.00 <span>S/270.00</span></div>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="pages/Ratón-Logitech-G-Pro.html" class="fas fa-eye"></a>
+                    </div>
+                </div>
+    
+                <!-- Componente 3: Ratón Razer Viper -->
+                <div class="box" data-marca="Razer" data-precio="210">
+                    <div class="image">
+                        <img src="images/Componentes/Razermouse.jpg" alt="Ratón Razer Viper" />
+                    </div>
+                    <div class="content">
+                        <h3>Ratón Razer Viper</h3>
+                        <div class="price">S/210.00 <span>S/250.00</span></div>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="pages/Ratón-Razer.html" class="fas fa-eye"></a>
+                    </div>
+                </div>
+    
+                <!-- Componente 4: Ratón SteelSeries Rival 3 -->
+                <div class="box" data-marca="SteelSeries" data-precio="170">
+                    <div class="image">
+                        <img src="images/Componentes/Steelmouse.jpg" alt="Ratón SteelSeries Rival 3" />
+                    </div>
+                    <div class="content">
+                        <h3>Ratón SteelSeries Rival 3</h3>
+                        <div class="price">S/170.00 <span>S/200.00</span></div>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="pages/Ratón-SteelSeries.html" class="fas fa-eye"></a>
+                    </div>
+                </div>
+    
+                <!-- Componente 5: Ratón Razer Naga X -->
+                <div class="box" data-marca="Razer" data-precio="240">
+                    <div class="image">
+                        <img src="images/Componentes/RazerNagamouse.jpg" alt="Ratón Razer Naga X" />
+                    </div>
+                    <div class="content">
+                        <h3>Ratón Razer Naga X</h3>
+                        <div class="price">S/240.00 <span>S/290.00</span></div>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="pages/Raton-Razer.html" class="fas fa-eye"></a>
+                    </div>
+                </div>
+    
+                <!-- Componente 6: Ratón Logitech G604 -->
+                <div class="box" data-marca="Logitech" data-precio="250">
+                    <div class="image">
+                        <img src="images/Componentes/LogitechG604mouse.jpg" alt="Ratón Logitech G604" />
+                    </div>
+                    <div class="content">
+                        <h3>Ratón Logitech G604</h3>
+                        <div class="price">S/250.00 <span>S/300.00</span></div>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="#" class="fas fa-heart"></a>
+                        <a href="pages/Ratón-Logitech-G604.html" class="fas fa-eye"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo y descripción -->
+            <div class="footer-section logo-section">
+                <h1><a href="index.html">Cyber-Tech</a></h1>
+                <p>Soluciones technologicas <br> a tu medida </p>
+                <p>Nuestras redes sociales</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/tu-perfil" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/tu-perfil" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/tu-canal" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@tu-perfil" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+
+            </div>
+
+            <!-- Sección sobre nosotros -->
+            <div class="footer-section about-section">
+                <h3><a href="servicios.html">SERVICIOS</a></h3>
+                <ul>
+                    <li><a href="">Ventas: 922118232 - 905467164 - 946561832 - 981023848 - 981025646 – 959287630 - 959284743</a></li>
+                    <li><a href="#">Email:  ventas@cybertech.com.pe</a></li>
+                    <li><a href="#">Dirección: Av. Garcilaso de la Vega 1248–1250</a></li>
+                    <li><a href="#">Nuestras Cuentas Bancarias</a></li>
+                    <li><a href="#">Galeria Compuwilson (Tienda 201)</a></li>
+                    <li><a href="#">WhatsApp Garantía: 959283589</a></li>
+                    <li><a href="#">Dirección de Soporte: Av. Garcilaso de la Vega
+                        1248–1250 Galeria Compuwilson (Tienda 107)</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Compra segura -->
+            <div class="footer-section secure-purchase-section">
+                <h3><a href="SobreNosotros.html">SOBRE NOSOTROS</a></h3>
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Nuestra Empresa</a></li>
+                    <li><a href="#">Medios de Pago</a></li>
+                    <li><a href="#">Política de Cookies</a></li>
+                    <li><a href="#">Política de devoluciones</a></li>
+                    <li><a href="#">Política de Privacidad de Datos Personales</a></li>
+                    <li><a href="#">Política de Envío</a></li>
+                    <li><a href="#">Política de garantías</a></li>
+                </ul>
+            </div>
+
+            <!-- Métodos de pago -->
+            <div class="footer-section payment-methods-section">
+                <h3>MÉTODOS DE PAGO</h3>
+                <div class="payment-icons">
+                    <img src="images/pagos.png" alt="Pago" /><br><br>
+                    <a href="reclamo.html"><img src="images/Reclamo.PNG" alt="Pago" /></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pie de página -->
+        <div class="footer-bottom">
+            <p>CYBER-TECH 2024 © Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="js/componentes.js"></script>
+    <script src="js/bot.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/buscar.js"></script>
+    <script src="js/seleccion.js"></script>
+</body>
+
+</html>
